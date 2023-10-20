@@ -2,26 +2,16 @@ import {useState, useEffect} from "react"
 import View from "./View.jsx"
 import React from "react"
 import getData from "./Data.js"
+import updateCurrentTime from "./CurrentTime.jsx"
 
 export default function Controller() {
   let [todoContent,setTodoContent] = useState('')
   let [allTodo, setAllTodo] = useState(JSON.parse(localStorage.getItem("todolist")) || []) 
-
   let [count, setCount] = useState(allTodo.length)
   let [todoTypes,setTodoTypes] = useState("all")
   let [currentCard, setCurrentCard] = useState()
   let [time, setTime] = useState([new Date().getHours(), new Date().getMinutes()])
-
   let [days,months] = getData()
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setTime([new Date().getHours(), new Date().getMinutes()])
-    }, 60000);
-
-    return () => clearInterval(interval)
-  }, [])
-
 
   let date = new Date()
   let hours = time[0]
@@ -31,15 +21,22 @@ export default function Controller() {
   let day = date.getDate()
   let whatTypeOfDay;
 
+  updateCurrentTime()
+
   if (hours >=6 && hours <=12) {
      whatTypeOfDay = "Morning"
   } 
-  else if (hours > 12 && hours <= 16) {  whatTypeOfDay =  "Afternoon"}
-  else if (hours > 16 && hours <= 20) {whatTypeOfDay = "Evening"} 
-  else { whatTypeOfDay =  "Night"}
+  else if (hours > 12 && hours <= 16) {  
+    whatTypeOfDay =  "Afternoon"
+  }
+  else if (hours > 16 && hours <= 20) {
+    whatTypeOfDay = "Evening"
+  } 
+  else {
+     whatTypeOfDay =  "Night"
+  }
   
   function handleSubmit(e) {
-    console.log(day)
     setCount(count + 1)
     e.preventDefault()
     setAllTodo(prev => {
@@ -120,10 +117,18 @@ export default function Controller() {
       return updatedTodo;
     });
   }
+
+  function onChangeee(e) {
+    return setTodoContent(e.target.value)
+  }
+
+  function handleSort(type) {
+    setTodoTypes(type)
+  }
   
     let renderTodo = allTodo.sort((a,b) => a.id - b.id).map(el => {
       return (
-<div className="todo" 
+      <div className="todo" 
     key={el.id} 
     draggable={true} 
     onDragStart={(e) => dragStartHandler(e,JSON.stringify(el))}
@@ -148,15 +153,6 @@ export default function Controller() {
 
     if (renderTodo.length === 0) {
       ""
-    }
-    
-
-    function onChangeee(e) {
-      return setTodoContent(e.target.value)
-    }
-
-    function handleSort(type) {
-      setTodoTypes(type)
     }
     
   return <View
