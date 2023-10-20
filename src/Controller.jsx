@@ -12,6 +12,7 @@ export default function Controller() {
   let [currentCard, setCurrentCard] = useState()
   let [time, setTime] = useState([new Date().getHours(), new Date().getMinutes()])
   let [days,months] = getData()
+  let [openSort, setOpenSort] = useState(false)
 
   let date = new Date()
   let hours = time[0]
@@ -170,5 +171,7 @@ export default function Controller() {
     whatTypeOfDay={whatTypeOfDay}
     hours={hours}
     minutes={minutes}
+    openSort={openSort}
+    setOpenSort={setOpenSort}
    />
 }
