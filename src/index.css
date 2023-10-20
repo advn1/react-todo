@@ -83,6 +83,30 @@
   color: white
 }
 
+.dropdown-sort {
+  position: absolute;
+  background-color: white;
+  border-radius: 5px;
+  padding: 7px;
+  border: 1px solid gray;
+  margin-top: 15px;
+}
+
+.dropdown-sort > ul {
+  padding-left: 25px; 
+}
+
+.dropdown-sort::before {
+  content: '';
+  position: absolute;
+  top: -0.45rem;
+  right: 5.7rem;
+  width: 15px;
+  height: 15px;
+  transform: rotate(45deg);
+  background-color: white;
+}
+
 /*all-todo properties*/
 .all-todo-div {
   max-height: 360px;
