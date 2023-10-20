@@ -52,6 +52,7 @@ export default function Controller() {
 
   let date = new Date()
   let hours = time[0]
+  let minutes = time[1] < 10 ? "0" + time[1] : time[1]
   let month = months[date.getMonth() + 1]
   let weekDay = days[date.getDay()]
   let day = date.getDate()
@@ -146,8 +147,6 @@ export default function Controller() {
       return updatedTodo;
     });
   }
-
-  
   
     let renderTodo = allTodo.sort((a,b) => a.id - b.id).map(el => {
       return (
@@ -178,10 +177,6 @@ export default function Controller() {
       ""
     }
     
-    
-    if (renderTodo.length === 0) {
-      renderTodo = [];
-    }
 
     function onChangeee(e) {
       return setTodoContent(e.target.value)
@@ -204,7 +199,7 @@ export default function Controller() {
     weekDay={weekDay}
     day={day}
     whatTypeOfDay={whatTypeOfDay}
-    hours={time[0]}
-    minutes={time[1]}
+    hours={hours}
+    minutes={minutes}
    />
 }
