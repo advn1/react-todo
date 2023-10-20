@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import UpdApp from "./UpdApp.jsx"
+import View from "./View.jsx"
 import React from "react"
 import { render } from "react-dom"
 
@@ -191,7 +191,7 @@ export default function Controller() {
       setTodoTypes(type)
     }
     
-  return <UpdApp
+  return <View
     handleSubmit={handleSubmit}
     todoContent={todoContent}
     handleTodoCheck={handleTodoCheck}
