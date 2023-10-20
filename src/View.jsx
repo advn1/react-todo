@@ -32,9 +32,9 @@ export default function UpdApp({handleSubmit,
                     </div>
                     {openSort && <div className="dropdown-sort">
                         <ul>
-                            <li onClick={() => handleSort("all")}>All</li>
-                            <li onClick={() => handleSort("active")}>Active</li>
-                            <li onClick={() => handleSort("completed")}>Completed</li>
+                            <li className="sort-type" onClick={() => handleSort("all")}>All</li>
+                            <li className="sort-type" onClick={() => handleSort("active")}>Active</li>
+                            <li className="sort-type" onClick={() => handleSort("completed")}>Completed</li>
                         </ul>
                     </div>}
                 </div>

@@ -83,6 +83,10 @@
   color: white
 }
 
+.button:hover > img {
+  cursor: pointer;
+}
+
 .dropdown-sort {
   position: absolute;
   background-color: white;
@@ -93,14 +97,20 @@
 }
 
 .dropdown-sort > ul {
-  padding-left: 25px; 
+  padding-left: 10px; 
+  list-style-type: none
+}
+
+.sort-type:hover {
+  cursor: pointer;
+  opacity: 0.5;
 }
 
 .dropdown-sort::before {
   content: '';
   position: absolute;
   top: -0.45rem;
-  right: 5.7rem;
+  right: 4.5rem;
   width: 15px;
   height: 15px;
   transform: rotate(45deg);
