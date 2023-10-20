@@ -126,10 +126,9 @@ export default function Controller() {
   function handleSort(type) {
     setTodoTypes(type)
   }
-  
-    let renderTodo = allTodo.sort((a,b) => a.id - b.id).map(el => {
-      return (
-      <div className="todo" 
+
+  function displayTodo(condition,el) {
+    return condition && (<div className="todo" 
     key={el.id} 
     draggable={true} 
     onDragStart={(e) => dragStartHandler(e,JSON.stringify(el))}
@@ -147,10 +146,21 @@ export default function Controller() {
             {el.content.length <= 67 ? <p style={{backgroundColor: ""}} className="content-todo">{el.content}</p> : <p className="todo-content">{el.content.slice(0,67) + "..."}</p>} 
             <img className="icon dots" src="./src/assets/dots.png"></img>
             <img onClick={() => handleTodoDelete(el.id)} className='icon x' src="./src/assets/x.png"></img>
-        </div>
-      )
-        
-    })
+        </div>)
+  }
+  
+  let renderTodo = allTodo
+  .sort((a,b) => a.id - b.id)
+  .map(el => {
+    let element = el
+    return (
+      todoTypes === "all" 
+        ? displayTodo(true,el) 
+        : todoTypes === "active" 
+          ? displayTodo(element.checked === false,el) 
+          : displayTodo(element.checked === true,el)
+    )
+  })
 
     if (renderTodo.length === 0) {
       ""
