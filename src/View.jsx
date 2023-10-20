@@ -19,11 +19,20 @@ export default function UpdApp({handleSubmit,
             <div className="good-day-div"><h1 className="good-day">Good {whatTypeOfDay}, User!</h1>
             <h1>Current time is: {hours + ":" + minutes}</h1></div>
             <div className="quote-div"><h1 className="quote">Be so good no one can ignore you</h1></div>
-            <div className="current-date-div">
-            <p className="day">{weekDay}</p>
-            <p className="day-number">{day}</p>
-            <p className="month">{month}</p>
+            <div className="menu-div">
+                <div className="current-date-div">
+                    <p className="day">{weekDay}</p>
+                    <p className="day-number">{day}</p>
+                    <p className="month">{month}</p>
+                </div>
+                <div className="buttons">
+                    <div className="button">
+                    <img className="icon sort" src="./src/assets/sort.png"></img>
+                    <p>Sort by</p>
+                    </div>
+                </div>
             </div>
+
             <div className="all-todo-div">
             {renderTodo}
             </div>
