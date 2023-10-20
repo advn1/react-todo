@@ -25,7 +25,6 @@ export default function UpdApp({handleSubmit,
             <p className="month">{month}</p>
             </div>
             <div className="all-todo-div">
-            {/* onDragOver={handleDragOver} drop={handleDrop} */}
             {renderTodo}
             </div>
             <div className="add-task-div">
