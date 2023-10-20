@@ -27,8 +27,8 @@ export default function UpdApp({handleSubmit,
                 </div>
                 <div className="buttons">
                     <div className="button">
-                    <img className="icon sort" src="./src/assets/sort.png"></img>
-                    <p>Sort by</p>
+                        <img className="icon sort" src="./src/assets/sort.png"></img>
+                        <p>Sort by</p>
                     </div>
                 </div>
             </div>

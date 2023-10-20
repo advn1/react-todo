@@ -79,6 +79,10 @@
   flex-direction: row;
 }
 
+.button > p {
+  color: white
+}
+
 /*all-todo properties*/
 .all-todo-div {
   max-height: 360px;
@@ -139,6 +143,11 @@
   width: 16px;
   height: 16px;
   align-self: center;
+}
+
+.sort {
+  border-radius: 5px;
+  background-color: rgb(122, 116, 159);
 }
 
 /*add-task properties*/
