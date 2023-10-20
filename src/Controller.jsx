@@ -22,7 +22,7 @@ export default function Controller() {
   let day = date.getDate()
   let whatTypeOfDay;
 
-  updateCurrentTime()
+  updateCurrentTime(setTime)
 
   if (hours >=6 && hours <=12) {
      whatTypeOfDay = "Morning"
