@@ -10,7 +10,7 @@ export default function UpdApp({handleSubmit,
     handleSort,
     whatTypeOfDay,
     hours,
-    minutes,weekDay,month,day
+    minutes,weekDay,month,day,openSort,setOpenSort
 }) {
     
 
@@ -27,9 +27,16 @@ export default function UpdApp({handleSubmit,
                 </div>
                 <div className="buttons">
                     <div className="button">
-                        <img className="icon sort" src="./src/assets/sort.png"></img>
+                        <img onClick={() => setOpenSort(!openSort)} className="icon sort" src="./src/assets/sort.png"></img>
                         <p>Sort by</p>
                     </div>
+                    {openSort && <div className="dropdown-sort">
+                        <ul>
+                            <li>All</li>
+                            <li>Active</li>
+                            <li>Completed</li>
+                        </ul>
+                    </div>}
                 </div>
             </div>
 
